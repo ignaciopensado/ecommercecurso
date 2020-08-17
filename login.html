@@ -25,26 +25,57 @@
       align-items: center;
       padding-top: 40px;
       padding-bottom: 40px;
-      background-color: #f5f5f5;
+      background-color: white;
     }
 
+    div{
+
+      border-style: solid;
+      border-width: thin;
+      border-color: black;
+      width: 300;
+      height: auto;
+      margin: 0 auto;
+      background-color: silver;
+      box-shadow: 0px 0px 5px 2px black;
+      text-align: center;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    label, input{
+      margin-bottom: 20px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    button{
+      background-color: skyblue;
+      margin-right: 5px;
+    }
     .signin {
       width: 100%;
       max-width: 330px;
       padding: 15px;
       margin: auto;
     }
+
   </style>
 </head>
-
+  <script src="js/login.js"></script>
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) -> Punto 3 y 4.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div>
+    <form>
+        <h2>¿Posee una cuenta? <i>Ingrese aquí!</i></h2>
+          <label>
+             <input id="user" placeholder="Ingrese su usuario..."></input>
+          </label>
+          <label>
+             <input id="pass" type="password" placeholder="Contraseña..."></input>  
+          </label>
+        <button onclick="acceder()">INGRESAR</button>
+    </form>
+
   </div>
 
   <script src="js/init.js"></script>
