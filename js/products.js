@@ -11,7 +11,7 @@ function construirProductos(info){
         var linea = `    <br>
                         <div class="borde">
                             <h1>${info[i].name} - <i>${info[i].currency} ${info[i].cost}</i></h1>                                             
-                            <p style="font-size:22px;"><button><img class="achicar" src="${info[i].imgSrc}" onclick="irAlCarrito();"</img></button>${info[i].description}</p>                      
+                            <p style="font-size:22px;"><img class="achicar" src="${info[i].imgSrc}" onclick="irAlCarrito();" title="CLICK para agregar al Carrito"</img>${info[i].description}</p>                      
                             <p class="vendidos">${info[i].soldCount} vendidos.</p>
                         </div>       
                         <br>
