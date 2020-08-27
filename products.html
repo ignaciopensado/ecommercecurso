@@ -14,19 +14,38 @@
     <link href="css/styles.css" rel="stylesheet">
     
     <style>
+      h1{
+        margin-left: 10px;
+      }
+ 
       p.vendidos{
         text-align: right;
-        border-bottom: 3px solid black;
-        margin-bottom: 45px;
+        margin-right: 5px;
+        margin-bottom: 25px;
       }
       img.achicar {
-        max-width:75%;
-        max-height:75%;
+        max-width:25%;
+        max-height:25%;
+        margin-left: 10px;
+      }
+      
+      img.miniatura{
+        max-width:1.25%;
+        max-height:1.25%;
+        margin-left: 5px;
       }
       .centrar {
         margin-left: auto;
         margin-right: auto;
       }
+
+      div.borde{
+      border: 5px double;
+      border-color:silver;
+      border-radius: 15px;
+        
+      }
+
 
     </style>
  
@@ -39,17 +58,33 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <p class="py-2 d-none d-md-inline-block" style="color:yellowgreen;" id="userlog"></p>
       </div>
     </nav>
     
-      <div>
-        <table id="latabla" class="centrar">
-          <tbody id="eljson">
-          </tbody>
-        </table>
+      <div id="contenedor">
+
+        <br>
+        <form>
+              <p style="text-align: right;">Rango de precios: <input id="inputmenor" type="number" placeholder="...menor"> </input> <input id="inputmayor"
+              type="number" placeholder="...mayor">
+              </input><button >Filtrar</button></p>
+              <p style="text-align: right;">Ordenar precios de modo:<select id="opciones" style="margin-left: 3px;">
+              <option value="ascendente">Ascendente</option>
+              <option value="descendente">Descendente</option>
+              </select>
+              <button>ORDENAR</button> </p>
+              <p style="text-align: right;">Filtrar por:  <button>más vendidos</button></p>
+              <input type="search" id="barra" style="text-align:
+                  left; margin-left: 5px;"style="text-align: left; margin-left: 5px;"
+                  placeholder="Buscar en la página..."><img class="miniatura" type="button" src="img/lupa.jpg" onclick="busqueda();"></input>
+        </form>
+        <div id=interno>
+            <!--EN ESTE DIV SE MUESTRAN LOS PRODUCTOS-->
+        </div>
       </div>
-     
-    
+      
+  
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">
@@ -65,7 +100,9 @@
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
    
- 
+     <script>
+            document.getElementById('userlog').innerHTML = localStorage.getItem("El_Usuario");
+    </script>
 
 </body>
 </html>

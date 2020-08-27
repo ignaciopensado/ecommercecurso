@@ -28,7 +28,7 @@
       background-color: white;
     }
 
-    div{
+    div.log{
 
       border-style: solid;
       border-width: thin;
@@ -43,6 +43,7 @@
       overflow: hidden;
     }
 
+
     label, input{
       margin-bottom: 20px;
       margin-left: 5px;
@@ -52,6 +53,7 @@
     button{
       background-color: skyblue;
       margin-right: 5px;
+      float: right;
     }
     .signin {
       width: 100%;
@@ -60,11 +62,16 @@
       margin: auto;
     }
 
+
   </style>
+
+
 </head>
   <script src="js/login.js"></script>
 <body class="text-center">
-  <div>
+  
+  
+  <div class="log">
     <form>
         <h2>¿Posee una cuenta? <i>Ingrese aquí!</i></h2>
           <label>
@@ -73,7 +80,10 @@
           <label>
              <input id="pass" type="password" placeholder="Contraseña..."></input>  
           </label>
-        <button onclick="acceder()">INGRESAR</button>
+        <button type="button" onclick="guardarDatosEnLS(); acceder();">INGRESAR</button>
+        <br>
+        <button onclick="vaciarLS();" style="font-size:12px; float:left; margin-bottom: 5px;  margin-left: 5px; background-color:red;">borrar LocStr</button>
+        <!-- ME COSTO DARME CUENTA, que sin ponerle type="button" como estaba dentro de un form, actuaba como un submit y me refresheaba la pagina, por eso no podia redirigir al index-->
     </form>
 
   </div>

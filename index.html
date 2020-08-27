@@ -2,7 +2,6 @@
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
   <head> 
-    <!-- <meta http-equiv="refresh" content="0; URL=login.html"> -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -13,6 +12,16 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    
+    <script>
+      function primerLogueo() {
+        if(localStorage.length === 0)
+          window.location = 'login.html';
+      }
+      primerLogueo();  
+     
+    </script>
+
   </head>
   <body>
 
@@ -23,6 +32,8 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <p class="py-2 d-none d-md-inline-block" style="color:yellowgreen;" id="userlog"></p>
+        
       </div>
     </nav>
     <main role="main">
@@ -107,5 +118,8 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
+    <script>
+            document.getElementById('userlog').innerHTML = localStorage.getItem("El_Usuario");
+    </script>
   </body>
 </html>

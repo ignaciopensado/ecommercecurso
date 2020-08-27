@@ -23,6 +23,7 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <p style="color:yellowgreen;" id="userlog"></p>
     </div>
   </nav>
   <div class="container p-5">
@@ -54,6 +55,9 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+      <script>
+            document.getElementById('userlog').innerHTML = localStorage.getItem("El_Usuario");
+    </script>
 </body>
 
 </html>
