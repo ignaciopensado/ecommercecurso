@@ -19,12 +19,10 @@
           window.location = 'login.html';
       }
       primerLogueo();  
-     
     </script>
 
   </head>
   <body>
-
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -32,7 +30,8 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <p class="py-2 d-none d-md-inline-block" style="color:yellowgreen;" id="userlog"></p>
+        <p class="py-2 d-none d-md-inline-block" style="color: yellow; text-align: center;">Bienvenido, <br><span style="color:yellowgreen;" id="userlog"></span></p>
+         <a class="py-2 d-none d-md-inline-block" href="login.html" style="color:skyblue;" onclick="localStorage.clear();"><u><i>Desconectarse</i></u></a>
         
       </div>
     </nav>
@@ -119,7 +118,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script>
-            document.getElementById('userlog').innerHTML = localStorage.getItem("El_Usuario");
+      document.getElementById('userlog').innerHTML = localStorage.getItem("El_Usuario");
     </script>
   </body>
 </html>

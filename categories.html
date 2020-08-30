@@ -13,6 +13,14 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+     <script>
+       function primerLogueo() {
+         if (localStorage.length === 0)
+           window.location = 'login.html';
+       }
+       primerLogueo();
+     </script>
+ 
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -22,13 +30,16 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <p style="color:yellowgreen;" id="userlog"></p>
+        <p class="py-2 d-none d-md-inline-block" style="color: yellow; text-align: center;">Bienvenido, <br><span
+            style="color:yellowgreen;" id="userlog"></span></p>
+       <a class="py-2 d-none d-md-inline-block" href="login.html" style="color:skyblue;"
+                          onclick="localStorage.clear();"><u><i>Desconectarse</i></u></a>
       </div>
     </nav>
     <main role="main" class="pb-5">
         <div class="text-center p-4">
             <h2>Categorías</h2>
-            <p class="lead">Verás aquí todas las categorías del sitio.</p>
+            <p class="lead"><i>Verás aquí todas las categorías del sitio.</i></p>
         </div>
         <div class="container">
             <div class="row">
@@ -89,7 +100,9 @@
     <script src="js/init.js"></script>
     <script src="js/categories.js"></script>
       <script>
+
             document.getElementById('userlog').innerHTML = localStorage.getItem("El_Usuario");
+
     </script>
   </body>
 </html>

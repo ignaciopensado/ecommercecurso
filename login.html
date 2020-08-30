@@ -14,42 +14,30 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
-      height: 100%;
-    }
 
     body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
+      padding-top: 125px;
       padding-bottom: 40px;
-      background-color: white;
+      background-color:coral;
     }
 
     div.log{
-
+      margin-top: 1.5px;
+      margin-right: 350px;
+      margin-left: 352px;
       border-style: solid;
       border-width: thin;
       border-color: black;
-      width: 300;
-      height: auto;
-      margin: 0 auto;
       background-color: silver;
       box-shadow: 0px 0px 5px 2px black;
       text-align: center;
       border-radius: 10px;
-      overflow: hidden;
     }
-
-
-    label, input{
+    input{
       margin-bottom: 20px;
       margin-left: 5px;
       margin-right: 5px;
     }
-
     button{
       background-color: skyblue;
       margin-right: 5px;
@@ -62,32 +50,23 @@
       margin: auto;
     }
 
-
   </style>
-
-
 </head>
   <script src="js/login.js"></script>
-<body class="text-center">
-  
-  
+<body>
+  <div style="text-align: center;">
+      <img src="img/login.png"></img>
+  </div>
   <div class="log">
-    <form>
-        <h2>¿Posee una cuenta? <i>Ingrese aquí!</i></h2>
-          <label>
-             <input id="user" placeholder="Ingrese su usuario..."></input>
-          </label>
-          <label>
-             <input id="pass" type="password" placeholder="Contraseña..."></input>  
-          </label>
+        <h2>¿Posee una cuenta? <i>Ingrese aquí!</i></h2> 
+        <input id="user" placeholder="Ingrese su usuario..."></input> 
+        <input id="pass" type="password" placeholder="Contraseña..."></input>  
         <button type="button" onclick="guardarDatosEnLS(); acceder();">INGRESAR</button>
         <br>
+        <!--                BOTON PARA VACIAR EL LOCAL STORAGE DENTRO DEL LOGIN
         <button onclick="vaciarLS();" style="font-size:12px; float:left; margin-bottom: 5px;  margin-left: 5px; background-color:red;">borrar LocStr</button>
-        <!-- ME COSTO DARME CUENTA, que sin ponerle type="button" como estaba dentro de un form, actuaba como un submit y me refresheaba la pagina, por eso no podia redirigir al index-->
-    </form>
-
+        -->
   </div>
-
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
