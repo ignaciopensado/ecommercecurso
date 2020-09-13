@@ -10,8 +10,9 @@ var cotaMin = undefined;
 var cotaMax = undefined;
 
 
-function irAlCarrito(){
-    window.location = 'cart.html';
+function primerLogueo() {
+    if (localStorage.length === 0)
+        window.location = 'login.html';
 }
 
 
@@ -75,10 +76,12 @@ function showCategoriesList() {
             ((cotaMax == undefined) || (cotaMax != undefined && parseInt(producto.cost) <= cotaMax))) {
                  htmlParaAnexar += `
                         <br>
-                        <div class="borde">
+                        <div class="borde" id="divPH" title="IR AL PRODUCTO">
+                        <a id="ingresoAPI" href="product-info.html">
                             <h1>${producto.name} - <i>${producto.currency} ${producto.cost}</i></h1>                                             
-                            <p style="font-size:22px;"><img class="achicar" src="${producto.imgSrc}" onclick="irAlCarrito();" title="CLICK para agregar al Carrito"</img>${producto.description}</p>                      
+                            <p style="font-size:22px;"><img class="achicar" src="${producto.imgSrc}"  title="CLICK para agregar al Carrito"</img> ${producto.description}</p>                      
                             <p class="vendidos">${producto.soldCount} vendidos.</p>
+                        </a>
                         </div>       
                         <br>
                    `
@@ -152,7 +155,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 window.find(texto);
      });
 
+    document.getElementById("buscar").addEventListener("click", function () {
+
+    });
+
 });
-
-
-

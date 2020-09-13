@@ -1,3 +1,8 @@
+function primerLogueo() {
+    if (localStorage.length === 0)
+        window.location = 'login.html';
+}
+
 var category = {};
 
 function showImagesGallery(array){

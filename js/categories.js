@@ -6,6 +6,11 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
+function primerLogueo() {
+    if (localStorage.length === 0)
+        window.location = 'login.html';
+}
+
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
