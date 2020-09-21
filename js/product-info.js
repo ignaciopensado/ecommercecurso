@@ -1,5 +1,6 @@
 var producto = {};
 var arrComentarios = {};
+var arrPRelacionados = {};
 var pUsuario = undefined;
 
 function primerLogueo() {
@@ -8,54 +9,66 @@ function primerLogueo() {
 }
 
 
-function mostrarProd(){
+function mostrarProd() {
     //primero muestro los datos del producto
     let htmlContentToAppend = "";
     htmlContentToAppend = `<h1 style="text-align: center;">${producto.name}</h1>
     <h3 style="text-align:center;"><span class="negrita">Precio: </span>${producto.currency} ${producto.cost}</h3>
     <p><span class="negrita">Descripción: </span>${producto.description}</p> <h5 style="text-align: right;">Vendidos: ${producto.soldCount}</h5>
-
     `
     document.getElementById("elcontenedor").innerHTML = htmlContentToAppend;
+}
 
-    //ahora muestro los relacionados
-    let relHtmlContentToAppend = "";
-    relHtmlContentToAppend = 
-        `
-        <div>
-            <a href="product-info.html">    
-                <img class="img-fluid img-thumbnail" style="width: 150px;"src="img/prod2.jpg" alt="" title="Fiat Way">
-                <img class="img-fluid img-thumbnail" style="width: 150px;" src="img/prod4.jpg" alt="" title="Peugeot 208">
-            </a>
-        </div>
-        `
-    document.getElementById("relacionados").innerHTML = relHtmlContentToAppend;   
+function mostrarRelacionados() {
+    let htmlContentToAppend = "";
+    for (let i = 0; i < producto.relatedProducts.length; i++) {
+        let indiceRP = producto.relatedProducts[i]; //aca almaceno el indice del auto relacionado
+        
+        let encontrado = false;
+        let j = 0;
+        while ( (j < arrPRelacionados.length) && (encontrado==false) ) {
+            if (indiceRP == j) { //aca me fijo si ese indice que almacene, es el mismo auto que estoy parado dentro del arreglo de productos
+                let elrelacionado = arrPRelacionados[j];
+                htmlContentToAppend +=
+                            `
+                           <a href="product-info.html" style="color: black">
+                                <h3>${elrelacionado.name}</h3>                                             
+                                <p style="font-size:22px;"><img class="img-fluid img-thumbnail" style="width: 150px; 
+                                    margin-left: auto; margin-right: auto; display: block;" src="${elrelacionado.imgSrc}"  
+                                title="CLICK para ir al producto."</img></p> 
+                                <p>${elrelacionado.description}</p>                      
+                            </a>
+                      `;
+                document.getElementById("relacionados").innerHTML = htmlContentToAppend;
+                encontrado = true;
+            }
+            j++;
+        }
+    }
+
 }
 
 function mostrarImg(array) {
+    var i = 0;
+    var imagenes = "";
+    array.forEach(elemento => {
 
-    let imgHtmlContentToAppend = "";
-
-    for (let i = 0; i < array.length; i++) {
-        let imageSrc = array[i];
-        imgHtmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-
-        document.getElementById("imagenes").innerHTML = imgHtmlContentToAppend;
-    }
+        if (i == 0) {
+            imagenes += "<div class='carousel-item active'>  <img class='dblock w-50'  src=" + elemento + " alt='" + elemento + "' width=50 height=300> </div>";
+        } else {
+            imagenes += "<div class='carousel-item '>  <img class='dblock w-50'  src=" + elemento + " alt='" + elemento + "' width=50 height=300> </div>";
+        }
+        i++;
+    });
+    document.getElementById('imagenes').innerHTML = imagenes;
 }
 
-function puntajeAEstrellas(comentario){
+function puntajeAEstrellas(comentario) {
     let puntaje = comentario.score;
     let estrellitas = "";
     for (let i = 0; i < puntaje; i++) {
         estrellitas += `<i class="fas fa-star" style="color: orange"> </i> `;
-    } 
+    }
     return estrellitas;
 }
 
@@ -81,20 +94,18 @@ function agregarComentario() {
         "user": undefined,
         "dateTime": undefined
     };
-    
+
     comentario.score = pUsuario;
     comentario.description = document.getElementById("elcomentario").value;
     comentario.user = localStorage.getItem("El_Usuario");
     comentario.dateTime = new Date();
 
-    if(pUsuario == undefined){
+    if (pUsuario == undefined) {
         alert("Debe ingresar un puntaje!!")
-    }
-    else if(comentario.description == ""){
+    } else if (comentario.description == "") {
         alert("No ha ingresado ningún comentario!!")
-    }
-    else{
-    arrComentarios.push(comentario);
+    } else {
+        arrComentarios.push(comentario);
     }
 }
 
@@ -118,11 +129,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
             mostrarComentarios(arrComentarios);
         }
     });
+
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {                      
+            arrPRelacionados = resultObj.data;
+            mostrarRelacionados();
+        }
+    });
     
     document.getElementById("elenvio").addEventListener("click", function () {
         agregarComentario();
         mostrarComentarios(arrComentarios);
-      });
+    });
+
 
 });
-

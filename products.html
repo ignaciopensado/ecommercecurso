@@ -14,6 +14,7 @@
     <link href="css/styles.css" rel="stylesheet">
     
     <style>
+
       h1{
         margin-left: 10px;
       }
@@ -40,17 +41,17 @@
       }
 
       div.borde{
-      border: 5px double;
-      border-color:silver;
-      border-radius: 15px;
+        border: 5px double;
+        border-color:silver;
+        border-radius: 15px;
         
       }
       #ingresoAPI {
-      color: black;
-      text-decoration: none;
+        color: black;
+        text-decoration: none;
       }
       #divPH:hover {
-      background-color: lightgrey;
+        background-color: lightgrey;
       }
 
     </style>
@@ -66,13 +67,20 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <p class="py-2 d-none d-md-inline-block" style="color: yellow; text-align: center;">Bienvenido, <br> <span style="color:yellowgreen;" 
-          id="userlog"></span></p> <a class="py-2 d-none d-md-inline-block" href="login.html" style="color:skyblue;" onclick="localStorage.clear();">
-            <u><i>Desconectarse</i></u></a>
+        <!--EL DROPDOWN-->
+        <div class="dropdown">
+            <button class="botonDropdown" class="py-2 d-none d-md-inline-block" id="userlog"></button>
+              <div class="contenidoDropdown">
+                    <a href="cart.html">Ver mi carrito</a>
+                    <a href="my-profile.html">Mi perfil</a>
+                    <a href="login.html" onclick="localStorage.clear();">Cerrar sesión</a>
+              </div>
+        </div>
+        <!----------------->    
       </div>
     </nav>
-      <!--LA SEARCH BAR-->
+ 
+    <!--LA SEARCH BAR-->
           <input type="search" title="Ingrese su busqueda y haga click en la lupa." id="barra" style="text-align: left; margin-left: 5px; margin-top: 10px;" style="text-align: left; margin-left: 5px;" placeholder="Buscar en la página...">
           <img class="miniatura" id="buscar" type="button" src="img/lupa.jpg" title="CLICK para buscar"></input>
      

@@ -11,11 +11,14 @@ var cotaMax = undefined;
 
 
 function primerLogueo() {
-    if (localStorage.length === 0)
+    if(localStorage.length === 0){
         window.location = 'login.html';
+    }
 }
 
-
+function mostrarUserEnBoton(){
+    document.getElementById("bdropd").innerHTML = localStorage.getItem("El_Usuario");
+}
 //FUNCION PARA ORDENAR ARREGLO
 function ordenarCat(criterio, arreglo) {
     let result = [];
@@ -110,7 +113,7 @@ function sortAndShowCategories(sortCriterio, categoriesArray) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-   getJSONData(PRODUCTS_URL).then(function (resultObj) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
        if (resultObj.status === "ok") {
            sortAndShowCategories(ORDEN_NORMAL, resultObj.data);
        }

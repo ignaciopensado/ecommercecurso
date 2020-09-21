@@ -27,9 +27,10 @@ function acceder() {
 
 }
 
-function guardarDatosEnLS() {
+ function guardarDatosEnLS() {
     var usuario = document.getElementById("user").value;
     var contra = document.getElementById("pass").value;
+    
     //obtengo usuario y contraseña, ahora los cargo al localStorage
     localStorage.setItem("El_Usuario", usuario);
     localStorage.setItem("La_Contrasena", contra);
