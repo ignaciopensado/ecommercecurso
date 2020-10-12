@@ -7,7 +7,6 @@ const CART_DESAFIATE_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.j
 //CART_INFO_URL para la entrega inicial
 var articulos = [];
 var costo = [];
-var suma = 0;
 
 
 function mostrarArticulos(array) {
