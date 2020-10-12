@@ -27,6 +27,13 @@
         font-size: 3.5rem;
       }
     }
+    
+    img.achicar {
+      width: 150px;
+      height: auto;
+      float: left; 
+      margin: 0px 15px 15px 0px;"
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -38,6 +45,10 @@
       }
       primerLogueo();
     </script>
+
+<!-- CART_INFO_URL https://japdevdep.github.io/ecommerce-api/cart/987.json 
+    JSON DESAFIATE: https://japdevdep.github.io/ecommerce-api/cart/654.json 
+    CART_BUY_URL   JSON has comprado con éxito??? https://japdevdep.github.io/ecommerce-api/cart/buy.json -->
 
 </head>
 
@@ -61,12 +72,13 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div id="divArticulo">
     </div>
+    <div id="divSubtotal">
+    </div>
+    <div id="divEnvio">
+    </div>
+  
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
@@ -82,9 +94,7 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
     <script>
-
             document.getElementById('userlog').innerHTML = localStorage.getItem("El_Usuario");
-
     </script>
 </body>
 
