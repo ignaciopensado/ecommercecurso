@@ -32,7 +32,7 @@
       width: 150px;
       height: auto;
       float: left; 
-      margin: 0px 15px 15px 0px;"
+      margin: 0px 15px 15px 0px;
     }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -77,8 +77,85 @@
     <div id="divSubtotal">
     </div>
     <div id="divEnvio">
+        <hr/>
+        <br>
+        <br>        
+        <h2>Tipo de envío</h2>
+        <input type="radio" id="elPremium" name="tipoEnvio" value="premium" checked onchange="actualizarCant();">
+        <label for="elPremium">Premium (2-5 días) - Costo del 15%</label>
+        <br>
+        <input type="radio" id="elExpress" name="tipoEnvio" value="express" onchange="actualizarCant();">
+        <label for="elExpress">Express (5-8 días) - Costo del 7%</label>
+        <br>
+        <input type="radio" id="elStandard" name="tipoEnvio" value="standard" onchange="actualizarCant();">
+        <label for="elStandard">Standard (12-15 días) - Costo del 5%</label>
+        <br>
+        <br>
+        <hr/>
+        <h2>Dirección del envío</h2>
+        <form onsubmit="return esValidoForm()">
+          <p>Calle: <input required></input>   Número de puerta: <input type="number" required></input></p>
+          <p>Esquina: <input required></input></p>
+          <p>País: <input required></input></p>     
+          <p>Estado/Provincia: <input required></input></p>
+          <p>Código postal: <input type="number" required></input></p>
+          <p>Teléfono: <input type="number" required></input></p>
+        <br>
+        <hr/>
+        <h3>Costo total: U$S<span id="total" ><span></h3>
+
+        <!-- Button para activar el Modal -->
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#tipoPagoModal">Seleccione el método de pago</button>
+        <br>
+        
+        <div> <!-- DIV EN EL QUE IRÍA EL ELEMENTO QUE APARECE Y DESAPARECE -->
+          <span id="pagoElegido" class="badge badge-success"></span>
+        </div>
+        
+        <br>
+        <hr/>
+        
+        <!-- BOTÓN PARA FINALIZAR -->
+        <button type="submit" class="btn btn-success" style="margin:auto; display:block;" onclick="esValidoForm();">COMPRAR</button>
+        </form>
+        
+
+
+
+
+      <!-- Modal -->
+        <div class="modal fade" id="tipoPagoModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Forma de pago</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                
+                <input type="radio" id="elCredito" name="metodoPago" value="credito">
+                <label for="elCredito">Tarjeta de crédito</label>
+                  <p style="margin-left: 30px;">Número de tarjeta: <input type="number" id="modalNumeroC"></input>
+                  <p style="margin-left: 30px;">Código de seguridad: <input type="number" style="width: 50px;" id="modalCodigoC"></input></p>
+                  <p style="margin-left: 30px;">Vencimiento: <input style="width: 60px;" id="modalVencimientoC"></input></p>
+                <hr/>
+                <input type="radio" id="laTransferencia" name="metodoPago" value="transferencia">
+                <label for="laTransferencia">Transferencia bancaria</label>
+                    <p style="margin-left: 30px;">Número de cuenta: <input type="number" id="modalCuentaT"></input>
+                <br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="controlarPago()">Guardar cambios</button> <!-- OJO CON ESTO; CAPAZ PASARLO DE NUEVO A BUTTON -->
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <!-- FIN Modal -->
+    
     </div>
-  
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
