@@ -53,13 +53,92 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  
+
+       <!-- FORM DE bootstrap con validación -->    
+<form id="formSubmit" class="needs-validation" novalidate>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validacionNombre">Nombre completo</label>
+      <input type="text" class="form-control" id="validacionNombre" placeholder="Nombres" required>
+        <div class="invalid-feedback">
+          Por favor, ingresa tu nombre.
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validacionApellido">Apellidos</label>
+      <input type="text" class="form-control" id="validacionApellido" placeholder="Apellidos" required>
+    <div class="invalid-feedback">
+          Por favor, ingresa tu apellido.
+    </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validacionCorreo">Correo</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend">@</span>
+        </div>
+        <input type="text" class="form-control" id="validacionCorreo" placeholder="Correo" aria-describedby="inputGroupPrepend" required>
+        <div class="invalid-feedback">
+          Por favor, ingresa tu correo.
+        </div>
+      </div>
     </div>
   </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validacionEdad">Edad</label>
+      <input type="number" class="form-control" id="validacionEdad" placeholder="Edad" required>
+        <div class="invalid-feedback">
+          Por favor, ingresa tu edad.
+        </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validacionTelefono">Teléfono</label>
+      <input type="number" class="form-control" id="validacionTelefono" placeholder="Número telefónico" required>
+        <div class="invalid-feedback">
+          Por favor, ingresa tu teléfono.
+        </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="validacionPais">País</label>
+      <input type="text" class="form-control" id="validacionPais" placeholder="País" required>
+      <div class="invalid-feedback">
+        Por favor, ingresa un país válido.
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="validacionProvincia">Provincia/Departamento</label>
+      <input type="text" class="form-control" id="validacionProvincia" placeholder="Provincia / Departamento" required>
+      <div class="invalid-feedback">
+        Por favor, ingresa una localidad válida.
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <hr>
+  <button id="submitGuardar" class="btn btn-primary" type="submit" onclick="guardarDatos();">Guardar cambios</button>
+  <!-- 
+    botón para borrar del local storage el perfil
+    <button class="btn btn-secondary" type="button" onclick="window.localStorage.removeItem('perfil');">Vaciar LS</button> 
+  --> 
+</form>
+
+
+  <!-- fin FORM DE bootstrap -------------------------->  
+  
+  
+  
+  </div>
+
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

@@ -18,18 +18,7 @@
       h1{
         margin-left: 10px;
       }
- 
-      p.vendidos{
-        text-align: right;
-        margin-right: 5px;
-        margin-bottom: 25px;
-      }
-      img.achicar {
-        max-width:25%;
-        max-height:25%;
-        margin-left: 10px;
-      }
-      
+
       img.miniatura{
         max-width:1.25%;
         max-height:1.25%;
@@ -40,18 +29,9 @@
         margin-right: auto;
       }
 
-      div.borde{
-        border: 5px double;
-        border-color:silver;
-        border-radius: 15px;
-        
-      }
       #ingresoAPI {
         color: black;
         text-decoration: none;
-      }
-      #divPH:hover {
-        background-color: lightgrey;
       }
 
     </style>
@@ -59,6 +39,8 @@
      <script>
        primerLogueo();
      </script>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -83,40 +65,37 @@
     <!--LA SEARCH BAR-->
           <input type="search" title="Ingrese su busqueda y haga click en la lupa." id="barra" style="text-align: left; margin-left: 5px; margin-top: 10px;" style="text-align: left; margin-left: 5px;" placeholder="Buscar en la página...">
           <img class="miniatura" id="buscar" type="button" src="img/lupa.jpg" title="CLICK para buscar"></input>
-     
-     <div class="text-center p-4">
-                <h2>Productos</h2>
-                <p class="lead"><i>Verás aquí los productos del sitio.</i></p>
-      </div>
-      <div id="contenedor">
-        <br>
-        <form>
-        
-          <!--FILTRADO POR RANGO-->
+          
+          
+    <!--FILTRADO POR RANGO-->
           <p style="text-align: right;">Rango de precios: <input id="rangeFilterCountMin" type="number" placeholder="...menor"> </input> 
           <input id="rangeFilterCountMax" type="number" placeholder="...mayor"></input><button type="button" id="rangeFilterCount">Filtrar</button></p>
               
-          <!--ORDEN ASC/DESC-->
+    <!--ORDEN ASC/DESC-->
           <p style="text-align: right;">Ordenar precios de modo:<select id="opciones" style="margin-left: 3px;">
           <option value="asc">Ascendente</option>
           <option value="desc">Descendente</option></select>
           <button type="button" id="bOpcion">ORDENAR</button> </p>
              
-          <!--FILTRO POR MÁS VENDIDOS-->
+    <!--FILTRO POR MÁS VENDIDOS-->
           <p style="text-align: right;">Filtrar por: <button type="button" id="ordenarPorVendidos">más vendidos</button></p>
           
-          <!--QUITAR FILTROS-->
+    <!--QUITAR FILTROS-->
           <button id="borrarFiltros" type="button" style="float :right" onClick="window.location.reload();">MOSTRAR TODOS</button>
-          
-
-       
-        </form>
-        <div id=interno style="width: 75%; margin: auto;">
-            <!--EN ESTE DIV SE MUESTRAN LOS PRODUCTOS-->
-        </div>
+     
+     <div class="text-center p-4">
+          <h2 style="margin-left: 100px;">Productos</h2>
+          <p class="lead"><i>Verás aquí los productos del sitio.</i></p>
       </div>
+
+      <!--EN ESTE  SE MUESTRAN LOS COMO ALBUM RESPONSIVO-->
+      <div class="container">
+          <div id=interno class="row justify-content-start">
+            
+          </div>
+      </div>
+
       
-  
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">

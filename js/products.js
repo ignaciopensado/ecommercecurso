@@ -78,15 +78,27 @@ function showCategoriesList() {
         if (((cotaMin == undefined) || (cotaMin != undefined && parseInt(producto.cost) >= cotaMin)) &&
             ((cotaMax == undefined) || (cotaMax != undefined && parseInt(producto.cost) <= cotaMax))) {
                  htmlParaAnexar += `
-                        <br>
-                        <div class="borde" id="divPH" title="IR AL PRODUCTO">
-                        <a id="ingresoAPI" href="product-info.html">
-                            <h1>${producto.name} - <i>${producto.currency} ${producto.cost}</i></h1>                                             
-                            <p style="font-size:22px;"><img class="achicar" src="${producto.imgSrc}"  title="CLICK para agregar al Carrito"</img> ${producto.description}</p>                      
-                            <p class="vendidos">${producto.soldCount} vendidos.</p>
-                        </a>
-                        </div>       
-                        <br>
+                        <div class="col-sm-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <a id="ingresoAPI" href="product-info.html">
+                                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" 
+                                        preserveAspectRatio="xMidYMid slice" role="img">
+                                            <rect width="100%" height="100%" fill="#55595c"/>
+                                            <image xlink:href="${producto.imgSrc}" width="100%"></img>
+                                        </svg>
+                                        
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                            <h1>${producto.name}</h1>
+                                            <h2><i>${producto.currency} ${producto.cost}</i></h2> 
+                                            ${producto.description}</p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">${producto.soldCount} vendidos.</small>
+                                                </div>
+                                        </div>                
+                                    </a>
+                                </div>
+                        </div>
                    `
         }
         document.getElementById("interno").innerHTML = htmlParaAnexar;
@@ -163,6 +175,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
 });
+
+
+
+
+
 
 
 
